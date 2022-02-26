@@ -1,6 +1,6 @@
 pragma Ada_2012;
 
-with Interfaces.C.Extensions; use Interfaces.C.Extensions;
+with Interfaces; use Interfaces;
 
 with fastpbkdf2_h_generic;
 
