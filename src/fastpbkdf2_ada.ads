@@ -1,3 +1,7 @@
-package Fastpbkdf2_Ada is
+pragma Ada_2012;
 
-end Fastpbkdf2_Ada;
+with Ada.Streams; use Ada.Streams;
+
+with Fastpbkdf2_Generic;
+
+package Fastpbkdf2_Ada is new Fastpbkdf2_Generic(Stream_Element, Stream_Element_Offset, Stream_Element_Array);

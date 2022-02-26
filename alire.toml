@@ -1,10 +1,13 @@
 name = "fastpbkdf2_ada"
 description = "Binding and an Ada wrapper to fastpbkdf2"
 version = "1.0.0"
+website = "https://github.com/AntonMeep/fastpbkdf2_ada"
+licenses = "ISC"
+tags = ["pbkdf2", "cryptography"]
 
 authors = ["Anton Fediushin"]
 maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
 maintainers-logins = ["AntonMeep"]
 
 [[depends-on]]
-openssl = "~1.1.0"
+openssl = "~1.1.1"
