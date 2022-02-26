@@ -12,12 +12,24 @@ is
      (Element'Modulus /= 256,
       "'Element' type must be mod 2**8, i.e. represent a byte");
 
-    procedure HMAC_SHA1(Password : Element_Array; Salt : Element_Array; Iterations : Natural; Output : out Element_Array);
-    function HMAC_SHA1(Password : Element_Array; Salt : Element_Array; Iterations : Natural) return Element_Array;
+   procedure HMAC_SHA1
+     (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
+      Output   : out Element_Array);
+   function HMAC_SHA1
+     (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
+      return Element_Array;
 
-    procedure HMAC_SHA256(Password : Element_Array; Salt : Element_Array; Iterations : Natural; Output : out Element_Array);
-    function HMAC_SHA256(Password : Element_Array; Salt : Element_Array; Iterations : Natural) return Element_Array;
+   procedure HMAC_SHA256
+     (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
+      Output   : out Element_Array);
+   function HMAC_SHA256
+     (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
+      return Element_Array;
 
-    procedure HMAC_SHA512(Password : Element_Array; Salt : Element_Array; Iterations : Natural; Output : out Element_Array);
-    function HMAC_SHA512(Password : Element_Array; Salt : Element_Array; Iterations : Natural) return Element_Array;
+   procedure HMAC_SHA512
+     (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
+      Output   : out Element_Array);
+   function HMAC_SHA512
+     (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
+      return Element_Array;
 end Fastpbkdf2_Generic;
