@@ -9,27 +9,27 @@ package Fastpbkdf2_Generic with
    Preelaborate
 is
    pragma Compile_Time_Error
-     (Element'Modulus /= 256,
+     (Element'Modulus /= 2**8,
       "'Element' type must be mod 2**8, i.e. represent a byte");
 
-   procedure HMAC_SHA1
+   procedure PBKDF2_HMAC_SHA1
      (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
       Output   : out Element_Array);
-   function HMAC_SHA1
+   function PBKDF2_HMAC_SHA1
      (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
       return Element_Array;
 
-   procedure HMAC_SHA256
+   procedure PBKDF2_HMAC_SHA256
      (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
       Output   : out Element_Array);
-   function HMAC_SHA256
+   function PBKDF2_HMAC_SHA256
      (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
       return Element_Array;
 
-   procedure HMAC_SHA512
+   procedure PBKDF2_HMAC_SHA512
      (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
       Output   : out Element_Array);
-   function HMAC_SHA512
+   function PBKDF2_HMAC_SHA512
      (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
       return Element_Array;
 end Fastpbkdf2_Generic;

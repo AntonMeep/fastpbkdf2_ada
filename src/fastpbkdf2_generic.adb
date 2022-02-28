@@ -1,15 +1,16 @@
 pragma Ada_2012;
 
 with Interfaces;
+with Interfaces.C;
 
 with fastpbkdf2_h_generic;
 
 package body Fastpbkdf2_Generic is
    package fastpbkdf2 is new fastpbkdf2_h_generic
-     (Element, Interfaces.Unsigned_32);
+     (Element, Interfaces.Unsigned_32, Interfaces.C.size_t);
    use fastpbkdf2;
 
-   procedure HMAC_SHA1
+   procedure PBKDF2_HMAC_SHA1
      (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
       Output   : out Element_Array)
    is
@@ -19,9 +20,9 @@ package body Fastpbkdf2_Generic is
          Salt (Salt'First)'Access, Salt'Length,
          Interfaces.Unsigned_32 (Iterations), Output (Output'First)'Access,
          Output'Length);
-   end HMAC_SHA1;
+   end PBKDF2_HMAC_SHA1;
 
-   function HMAC_SHA1
+   function PBKDF2_HMAC_SHA1
      (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
       return Element_Array
    is
@@ -29,11 +30,11 @@ package body Fastpbkdf2_Generic is
         (Index'Max (Index'First, 0) .. Index'Max (Index'First, 0) + 19) :=
         (others => Element'First);
    begin
-      HMAC_SHA1 (Password, Salt, Iterations, Output);
+      PBKDF2_HMAC_SHA1 (Password, Salt, Iterations, Output);
       return Output;
-   end HMAC_SHA1;
+   end PBKDF2_HMAC_SHA1;
 
-   procedure HMAC_SHA256
+   procedure PBKDF2_HMAC_SHA256
      (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
       Output   : out Element_Array)
    is
@@ -43,9 +44,9 @@ package body Fastpbkdf2_Generic is
          Salt (Salt'First)'Access, Salt'Length,
          Interfaces.Unsigned_32 (Iterations), Output (Output'First)'Access,
          Output'Length);
-   end HMAC_SHA256;
+   end PBKDF2_HMAC_SHA256;
 
-   function HMAC_SHA256
+   function PBKDF2_HMAC_SHA256
      (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
       return Element_Array
    is
@@ -53,11 +54,11 @@ package body Fastpbkdf2_Generic is
         (Index'Max (Index'First, 0) .. Index'Max (Index'First, 0) + 31) :=
         (others => Element'First);
    begin
-      HMAC_SHA256 (Password, Salt, Iterations, Output);
+      PBKDF2_HMAC_SHA256 (Password, Salt, Iterations, Output);
       return Output;
-   end HMAC_SHA256;
+   end PBKDF2_HMAC_SHA256;
 
-   procedure HMAC_SHA512
+   procedure PBKDF2_HMAC_SHA512
      (Password :     Element_Array; Salt : Element_Array; Iterations : Natural;
       Output   : out Element_Array)
    is
@@ -67,9 +68,9 @@ package body Fastpbkdf2_Generic is
          Salt (Salt'First)'Access, Salt'Length,
          Interfaces.Unsigned_32 (Iterations), Output (Output'First)'Access,
          Output'Length);
-   end HMAC_SHA512;
+   end PBKDF2_HMAC_SHA512;
 
-   function HMAC_SHA512
+   function PBKDF2_HMAC_SHA512
      (Password : Element_Array; Salt : Element_Array; Iterations : Natural)
       return Element_Array
    is
@@ -77,7 +78,7 @@ package body Fastpbkdf2_Generic is
         (Index'Max (Index'First, 0) .. Index'Max (Index'First, 0) + 63) :=
         (others => Element'First);
    begin
-      HMAC_SHA512 (Password, Salt, Iterations, Output);
+      PBKDF2_HMAC_SHA512 (Password, Salt, Iterations, Output);
       return Output;
-   end HMAC_SHA512;
+   end PBKDF2_HMAC_SHA512;
 end Fastpbkdf2_Generic;
