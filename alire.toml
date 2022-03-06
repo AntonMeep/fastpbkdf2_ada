@@ -1,6 +1,6 @@
 name = "fastpbkdf2_ada"
 description = "Binding and an Ada wrapper to fastpbkdf2"
-version = "1.0.0"
+version = "2.0.0"
 website = "https://github.com/AntonMeep/fastpbkdf2_ada"
 licenses = "ISC"
 tags = ["pbkdf2", "cryptography"]
